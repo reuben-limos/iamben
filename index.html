@@ -27,9 +27,19 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .card:hover {
-        transform: translateY(-5px);
-        transition: all 0.3s ease;
+      /* Overlay Logic */
+      .project-card .overlay {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .project-card:hover .overlay {
+        opacity: 1;
+      }
+
+      #modal {
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
       }
     </style>
   </head>
@@ -116,7 +126,8 @@
       </h3>
       <div class="grid md:grid-cols-2 gap-8">
         <div
-          class="card bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          class="project-card group relative overflow-hidden cursor-pointer bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          onclick="openModal('./assets/kaamfu.gif', 'Kaamfu')"
         >
           <div
             class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase mb-2"
@@ -145,10 +156,30 @@
               >Twilio</span
             >
           </div>
+          <!-- Image Overlay -->
+          <div
+            class="overlay absolute inset-0 z-20 bg-white dark:bg-slate-900/90 flex items-center justify-center p-4"
+          >
+            <img
+              src="./assets/kaamfu.gif"
+              alt="Kaamfu"
+              class="rounded-lg object-cover w-full h-full shadow-2xl"
+            />
+            <div
+              class="absolute maximize-icon text-white text-3xl w-full h-full items-end justify-center flex mb-10"
+            >
+              <div
+                class="flex items-center justify-center bg-gray-800/80 p-2 rounded-2xl"
+              >
+                <i class="fa-solid fa-expand"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div
-          class="card bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          class="project-card group relative overflow-hidden cursor-pointer bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          onclick="openModal('./assets/ghx.jpg', 'Guided Hearing Experience')"
         >
           <div
             class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase mb-2"
@@ -177,10 +208,30 @@
               >Wordpress</span
             >
           </div>
+          <!-- Image Overlay -->
+          <div
+            class="overlay absolute inset-0 z-20 bg-white dark:bg-slate-900/90 flex items-center justify-center p-4"
+          >
+            <img
+              src="./assets/ghx.jpg"
+              alt="Guided Hearing Experience"
+              class="rounded-lg object-cover w-full h-full shadow-2xl"
+            />
+            <div
+              class="absolute maximize-icon text-white text-3xl w-full h-full items-end justify-center flex mb-10"
+            >
+              <div
+                class="flex items-center justify-center bg-gray-800/80 p-2 rounded-2xl"
+              >
+                <i class="fa-solid fa-expand"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div
-          class="card bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          class="project-card group relative overflow-hidden cursor-pointer bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          onclick="openModal('./assets/store.jpg', 'Store Front Office')"
         >
           <div
             class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase mb-2"
@@ -209,17 +260,37 @@
               >SASS</span
             >
           </div>
+          <!-- Image Overlay -->
+          <div
+            class="overlay absolute inset-0 z-20 bg-white dark:bg-slate-900/90 flex items-center justify-center p-4"
+          >
+            <img
+              src="./assets/store.jpg"
+              alt="Store Front Office"
+              class="rounded-lg object-cover w-full h-full shadow-2xl"
+            />
+            <div
+              class="absolute maximize-icon text-white text-3xl w-full h-full items-end justify-center flex mb-10"
+            >
+              <div
+                class="flex items-center justify-center bg-gray-800/80 p-2 rounded-2xl"
+              >
+                <i class="fa-solid fa-expand"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div
-          class="card bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          class="project-card group relative overflow-hidden cursor-pointer bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
+          onclick="openModal('./assets/learn.jpg', 'Interactive Activities')"
         >
           <div
             class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase mb-2"
           >
             httpmédia
           </div>
-          <h4 class="text-xl font-bold mb-3">Interactive E-Learning</h4>
+          <h4 class="text-xl font-bold mb-3">Interactive Activities</h4>
           <p
             class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed"
           >
@@ -240,6 +311,25 @@
               class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs rounded-full"
               >Javascript</span
             >
+          </div>
+          <!-- Image Overlay -->
+          <div
+            class="overlay absolute inset-0 z-20 bg-white dark:bg-slate-900/90 flex items-center justify-center p-4"
+          >
+            <img
+              src="./assets/learn.jpg"
+              alt="Interactive Activities"
+              class="rounded-lg object-contain w-full h-full shadow-2xl"
+            />
+            <div
+              class="absolute maximize-icon text-white text-3xl w-full h-full items-end justify-center flex mb-10"
+            >
+              <div
+                class="flex items-center justify-center bg-gray-800/80 p-2 rounded-2xl"
+              >
+                <i class="fa-solid fa-expand"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -316,6 +406,15 @@
       </div>
     </section>
 
+    <!-- Modal Structure -->
+    <div id="modal" class="fixed inset-0 z-50 invisible opacity-0 bg-black/90 flex items-center justify-center p-4 md:p-10" onclick="closeModal()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-emerald-500 transition">&times;</button>
+        <div class="max-w-5xl w-full" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" class="rounded-xl w-full h-auto shadow-2xl border border-slate-700">
+            <p id="modal-caption" class="text-white mt-4 text-center font-semibold text-lg"></p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer
       class="border-t border-slate-200 dark:border-slate-800 py-12 text-center text-slate-500 text-sm"
@@ -329,7 +428,7 @@
         <a href="#"
           ><i class="fa-brands fa-github hover:text-emerald-500"></i
         ></a>
-        <a href="#"
+        <a href="www.linkedin.com/in/reuben-limos-437097b7"
           ><i class="fa-brands fa-linkedin hover:text-emerald-500"></i
         ></a>
       </div>
@@ -344,6 +443,9 @@
       const themeToggleLightIcon = document.getElementById(
         "theme-toggle-light-icon",
       );
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      const modalCaption = document.getElementById("modal-caption");
 
       // Logic to switch icons and theme
       if (
@@ -369,6 +471,19 @@
           document.documentElement.classList.add("dark");
           localStorage.setItem("color-theme", "dark");
         }
+      });
+
+      function openModal(src, caption) {
+        modalImg.src = src;
+        modalCaption.innerText = caption;
+        modal.classList.remove("invisible", "opacity-0");
+      }
+      function closeModal() {
+        modal.classList.add("invisible", "opacity-0");
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
       });
     </script>
   </body>
