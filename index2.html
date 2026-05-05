@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reuben Limos | Senior Frontend Developer</title>
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                    },
+                    keyframes: {
+                        'infinite-scroll': {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
+        .gradient-text { background: linear-gradient(90deg, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tech-pill { @apply flex items-center justify-center px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-lg shadow-sm whitespace-nowrap mx-4; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+
+    <!-- Navigation (Same as before) -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold tracking-tight">RL<span class="text-emerald-500">.</span></span>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#projects" class="hover:text-emerald-500 transition text-slate-600 dark:text-slate-300">Projects</a>
+                    <a href="#skills" class="hover:text-emerald-500 transition text-slate-600 dark:text-slate-300">Skills</a>
+                    <a href="#experience" class="hover:text-emerald-500 transition text-slate-600 dark:text-slate-300">Experience</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 ring-emerald-500 transition">
+                    <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon"></i>
+                    <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Abbreviated for focus) -->
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Reuben Limos</h1>
+        <p class="max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400">Senior Frontend Web Developer with 12+ years experience.</p>
+    </section>
+
+    <!-- NEW: Tech Stack Carousel Section -->
+    <section id="skills" class="py-20 overflow-hidden bg-slate-100/50 dark:bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-6 mb-12 text-center">
+            <h3 class="text-3xl font-bold">Core Tech Stack</h3>
+            <p class="text-slate-500 mt-2 text-sm">Technologies I use to build scalable web applications</p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="flex overflow-hidden group">
+            <div class="flex animate-infinite-scroll whitespace-nowrap group-hover:[animation-play-state:paused]">
+                <!-- List items (Original Set) -->
+                <div class="tech-pill text-emerald-500">VueJs</div>
+                <div class="tech-pill text-blue-500">Vue 3</div>
+                <div class="tech-pill text-emerald-600">NuxtJs</div>
+                <div class="tech-pill text-blue-400">Vuetify</div>
+                <div class="tech-pill text-purple-600">Bootstrap</div>
+                <div class="tech-pill text-blue-600">CSS</div>
+                <div class="tech-pill text-pink-500">Sass</div>
+                <div class="tech-pill text-yellow-500">JavaScript</div>
+                <div class="tech-pill text-slate-600 dark:text-slate-300">Axios</div>
+                <div class="tech-pill text-slate-600 dark:text-slate-300">Ajax</div>
+                <div class="tech-pill text-blue-800">SQL</div>
+                <div class="tech-pill text-indigo-500">PHP</div>
+
+                <!-- Duplicate Set (For seamless looping) -->
+                <div class="tech-pill text-emerald-500">VueJs</div>
+                <div class="tech-pill text-blue-500">Vue 3</div>
+                <div class="tech-pill text-emerald-600">NuxtJs</div>
+                <div class="tech-pill text-blue-400">Vuetify</div>
+                <div class="tech-pill text-purple-600">Bootstrap</div>
+                <div class="tech-pill text-blue-600">CSS</div>
+                <div class="tech-pill text-pink-500">Sass</div>
+                <div class="tech-pill text-yellow-500">JavaScript</div>
+                <div class="tech-pill text-slate-600 dark:text-slate-300">Axios</div>
+                <div class="tech-pill text-slate-600 dark:text-slate-300">Ajax</div>
+                <div class="tech-pill text-blue-800">SQL</div>
+                <div class="tech-pill text-indigo-500">PHP</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Footer remain the same... -->
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
